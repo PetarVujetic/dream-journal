@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "3e5698d5-58a0-47c6-a054-dde8ff3ddf49",
+		"name": "Dream-journal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get available dream types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/dream-types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"dream-types"
+					]
+				},
+				"description": "Gets all dream types"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a dream",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Naslov",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "opiskfgeg",
+							"type": "text"
+						},
+						{
+							"key": "dreamType",
+							"value": "scary",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/create-dream",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"create-dream"
+					]
+				},
+				"description": "Creates a new dream object\nRequired: title, description and dreamType"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a dream",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/6054a78e420ddf2cc529778e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"6054a78e420ddf2cc529778e"
+					]
+				},
+				"description": "Gets a dream by dreamId param"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a dream",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/6054a78e420ddf2cc529778e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"6054a78e420ddf2cc529778e"
+					]
+				},
+				"description": "Updates a dream by dreamId param"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a dream",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/6054a78e420ddf2cc529778e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"6054a78e420ddf2cc529778e"
+					]
+				},
+				"description": "Deletes a dream by dreamId param"
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Naslov",
+							"type": "text"
+						},
+						{
+							"key": "dreamType",
+							"value": "scary",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2020-03-19",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2021-04-19",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/search?limit=10&page=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"search"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Searches for dreams by parameters: dreamType, title, startDate and endDate"
+			},
+			"response": []
+		}
+	]
+}
