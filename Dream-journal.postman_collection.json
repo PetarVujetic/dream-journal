@@ -196,33 +196,25 @@
 						},
 						{
 							"key": "dreamType",
-							"value": "scary",
+							"value": "happy",
 							"type": "text"
 						},
 						{
 							"key": "startDate",
 							"value": "2020-03-19",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "endDate",
 							"value": "2021-04-19",
-							"type": "text"
-						},
-						{
-							"key": "page",
-							"value": "1",
-							"type": "text"
-						},
-						{
-							"key": "limit",
-							"value": "5",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/dream/search?limit=10&page=2",
+					"raw": "http://localhost:5000/api/dream/search?limit=3&page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -236,15 +228,41 @@
 					"query": [
 						{
 							"key": "limit",
-							"value": "10"
+							"value": "3"
 						},
 						{
 							"key": "page",
-							"value": "2"
+							"value": "1"
 						}
 					]
 				},
 				"description": "Searches for dreams by parameters: dreamType, title, startDate and endDate"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all dreams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/dream/dreams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dream",
+						"dreams"
+					]
+				},
+				"description": "Gets all dreams"
 			},
 			"response": []
 		}

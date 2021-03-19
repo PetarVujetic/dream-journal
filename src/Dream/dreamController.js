@@ -67,6 +67,17 @@ router.get('/search', async (req, res)=>{
   
 })
 
+//Get all dreams 
+router.get('/dreams', async (req,res)=>{
+  try {
+    let dreams = await Dream.find({})
+    res.status(200).send(dreams)
+  } catch (err) {
+    return res.status(500).send(err)
+  }
+})
+
+
 //Gets a single dream by id
 router.get('/:dreamId', async (req, res)=>{
   try {
