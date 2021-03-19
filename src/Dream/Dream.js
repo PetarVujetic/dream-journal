@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const moment = require('moment')
 
 let dreamSchema = new mongoose.Schema({
   title: {
@@ -8,10 +7,11 @@ let dreamSchema = new mongoose.Schema({
   },
   description: {
     type: String,
+    required: true
   },
     createdDate: {
     type: Date,
-    default: ()=> moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    default: Date.now()
   },
   dreamType: {
     type: String,
