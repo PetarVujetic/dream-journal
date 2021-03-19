@@ -81,21 +81,26 @@ router.get('/:dreamId', async (req, res)=>{
 
 // Delete a dream
 router.delete('/:dreamId', async function (req, res) {
-  await Dream.findByIdAndRemove(req.params.dreamId, function (err, dream) {
-    if (err) return res.status(500).send("There was a problem deleting the dream.");
-    if (!dream) return res.send("Error finding the dream")
-
+ 
+  try {
+    const dream = await Dream.findByIdAndRemove(req.params.dreamId)
+    if (!dream) return res.status(400).send("Error finding the dream")
     res.status(200).send("Dream: " + dream.title + " was deleted.");
-  });
+  } catch (err) {
+    return res.status(500).send("There was a problem deleting the dream")
+  }
 });
-
+ 
 // Update a dream
 router.put('/:dreamId', async function (req, res) {
-  await Dream.findByIdAndUpdate(req.params.dreamId, req.body, { new: true }, function (err, dream) {
-    if (err) return res.status(500).send("There was a problem updating the dream.");
-    if (!dream) return res.send("Error finding the dream to update")
-    res.status(201).send(dream);
-  });
+ 
+try {
+  const dream = await Dream.findByIdAndUpdate(req.params.dreamId, req.body, { new: true })
+  if (!dream) return res.status(400).send("Error finding the dream")
+  res.status(201).send(dream);
+} catch (err) {
+  return res.status(500).send("There was a problem updating the dream");
+}
 });
 
 
